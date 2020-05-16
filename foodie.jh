@@ -1,0 +1,21 @@
+entity Meals {
+	when ZonedDateTime
+	breakfast Recipe,
+	lunch Recipe,
+	dinner Recipe
+}
+
+entity Recipe {
+	name String,
+}
+
+entity Tag {
+	name String
+}
+
+relationship ManyToMany {
+	Recipe{tag(name)} to Tag{recipe}
+}
+enum MealTime {
+    BREAKFAST, LUNCH, DINNER
+}
