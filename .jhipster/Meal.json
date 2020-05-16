@@ -1,0 +1,46 @@
+{
+    "name": "Meal",
+    "fields": [
+        {
+            "fieldName": "when",
+            "fieldType": "ZonedDateTime"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "recipe",
+            "otherEntityRelationshipName": "meal",
+            "relationshipName": "breakfast",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "recipe",
+            "otherEntityRelationshipName": "meal",
+            "relationshipName": "lunch",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "recipe",
+            "otherEntityRelationshipName": "meal",
+            "relationshipName": "dinner",
+            "otherEntityField": "id",
+            "ownerSide": true
+        }
+    ],
+    "changelogDate": "20200516191700",
+    "entityTableName": "meal",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

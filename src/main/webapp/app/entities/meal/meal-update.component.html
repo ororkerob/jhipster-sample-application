@@ -1,0 +1,57 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-meal-heading" jhiTranslate="jhipsterSampleApplicationApp.meal.home.createOrEditLabel">Create or edit a Meal</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.meal.when" for="field_when">When</label>
+                    <div class="d-flex">
+                        <input id="field_when" type="datetime-local" class="form-control" name="when" formControlName="when" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.meal.breakfast" for="field_breakfast">Breakfast</label>
+                    <select class="form-control" id="field_breakfast" name="breakfast" formControlName="breakfast">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="recipeOption.id === editForm.get('breakfast')!.value?.id ? editForm.get('breakfast')!.value : recipeOption" *ngFor="let recipeOption of breakfasts; trackBy: trackById">{{ recipeOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.meal.lunch" for="field_lunch">Lunch</label>
+                    <select class="form-control" id="field_lunch" name="lunch" formControlName="lunch">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="recipeOption.id === editForm.get('lunch')!.value?.id ? editForm.get('lunch')!.value : recipeOption" *ngFor="let recipeOption of lunches; trackBy: trackById">{{ recipeOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.meal.dinner" for="field_dinner">Dinner</label>
+                    <select class="form-control" id="field_dinner" name="dinner" formControlName="dinner">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="recipeOption.id === editForm.get('dinner')!.value?.id ? editForm.get('dinner')!.value : recipeOption" *ngFor="let recipeOption of dinners; trackBy: trackById">{{ recipeOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,48 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="meal">
+            <h2><span jhiTranslate="jhipsterSampleApplicationApp.meal.detail.title">Meal</span> {{ meal.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.meal.when">When</span></dt>
+                <dd>
+                    <span>{{ meal.when }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.meal.breakfast">Breakfast</span></dt>
+                <dd>
+                    <div *ngIf="meal.breakfast">
+                        <a [routerLink]="['/recipe', meal.breakfast?.id, 'view']">{{ meal.breakfast?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.meal.lunch">Lunch</span></dt>
+                <dd>
+                    <div *ngIf="meal.lunch">
+                        <a [routerLink]="['/recipe', meal.lunch?.id, 'view']">{{ meal.lunch?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.meal.dinner">Dinner</span></dt>
+                <dd>
+                    <div *ngIf="meal.dinner">
+                        <a [routerLink]="['/recipe', meal.dinner?.id, 'view']">{{ meal.dinner?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/meal', meal.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

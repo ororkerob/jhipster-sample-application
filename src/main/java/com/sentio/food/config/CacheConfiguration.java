@@ -40,6 +40,11 @@ public class CacheConfiguration {
             createCache(cm, com.sentio.food.domain.User.class.getName());
             createCache(cm, com.sentio.food.domain.Authority.class.getName());
             createCache(cm, com.sentio.food.domain.User.class.getName() + ".authorities");
+            createCache(cm, com.sentio.food.domain.Meal.class.getName());
+            createCache(cm, com.sentio.food.domain.Recipe.class.getName());
+            createCache(cm, com.sentio.food.domain.Recipe.class.getName() + ".categories");
+            createCache(cm, com.sentio.food.domain.Category.class.getName());
+            createCache(cm, com.sentio.food.domain.Category.class.getName() + ".recipes");
             // jhipster-needle-ehcache-add-entry
         };
     }
