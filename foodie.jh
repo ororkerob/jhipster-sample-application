@@ -1,0 +1,12 @@
+
+entity Category {
+	name String
+}
+
+entity Product {
+	name String
+}
+
+relationship OneToMany {
+	Category{products} to Product{category} 
+}
